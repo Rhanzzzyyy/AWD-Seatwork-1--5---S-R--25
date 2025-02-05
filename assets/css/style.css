@@ -1,0 +1,96 @@
+/* Ensure full page display */
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    color: white;
+  }
+  
+  /* Background Video Styling */
+  .video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Content Wrapper */
+  .content-container {
+    position: relative;
+    z-index: 1;
+    padding-top: 80px; /* Adjust for navbar height */
+  }
+  
+  /* Navbar */
+  nav {
+    background-color:black(255, 255, 255, 0.8);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-brand {
+    font-size: 24px;
+    text-transform: uppercase;
+    font-weight: 900;
+    color: black;
+  }
+  
+  .navbar-nav .nav-link {
+    color:black;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: black;
+  }
+  
+  /* Hero Section */
+  #hero {
+    text-align: center;
+    padding: 100px 0;
+  }
+  
+  #hero h1 {
+    text-transform: uppercase;
+    font-weight: 900;
+    color:white;
+    background-color: transparent;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  
+  /* Card Styling */
+  .card {
+    width: 18rem;
+    background:transparent;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: white;
+  }
+  
+  .card-body {
+    padding: 20px;
+  }
+  
+  .card img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: transparent;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+  }
+  
