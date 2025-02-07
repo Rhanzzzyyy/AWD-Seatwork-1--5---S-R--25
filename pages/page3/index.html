@@ -4,16 +4,16 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../pages/page3/assets/css/style.css" />
+    <link rel="stylesheet" href="../../pages/page1/assets/css/style.css" />
     <title>Bus Seat Reservation</title>
   </head>
   <body>
     <div class="video-container">
-        <video autoplay loop muted playsinline>
-            <source src="../../assets/img/stardew-valley-bus-moewalls-com.mp4" type="video/mp4">
-        </video>
+      <video autoplay loop muted playsinline>
+        <source src="../../assets/img/stardew-valley-bus-moewalls-com.mp4" type="video/mp4" />
+      </video>
     </div>
-    
+
     <nav>
       <a href="../../index.html" class="location-btn">View Location</a>
     </nav>
@@ -21,7 +21,7 @@
     <div class="bus-container">
       <label>Select a Bus:</label>
       <select id="bus">
-        <option value="3220" data-destination="LEGARDA">Bus 3 ($3220) - UST</option>
+        <option value="4220" data-destination="Legarda">Bus 3 ($4220) - UST</option>
       </select>
       <p id="destination">Destination: </p>
     </div>
@@ -31,17 +31,16 @@
         <div class="seat"></div>
         <small>Available</small>
       </li>
-      <ul class="showcase">
       <li>
         <div class="seat reserved"></div>
-        <small>Reserved</small></ul>
+        <small>Reserved</small>
       </li>
       <li>
         <div class="seat sold"></div>
         <small>Sold</small>
       </li>
     </ul>
-    
+
     <div class="container">
       <div class="row">
         <div class="seat"></div>
@@ -50,7 +49,7 @@
         <div class="seat"></div>
         <div class="seat"></div>
       </div>
-    
+
       <div class="row">
         <div class="seat"></div>
         <div class="seat"></div>
@@ -58,7 +57,7 @@
         <div class="seat"></div>
         <button class="seat sold" disabled></button>
       </div>
-    
+
       <div class="row">
         <div class="seat"></div>
         <div class="seat"></div>
@@ -73,6 +72,7 @@
     </p>
 
     <button id="cancel-reservation">Cancel Reservation</button>
+    <button id="reserve-five-seats">Reserve 5 Seats</button>
 
     <script src="../../pages/page1/assets/js/scripts.js"></script>
   </body>
