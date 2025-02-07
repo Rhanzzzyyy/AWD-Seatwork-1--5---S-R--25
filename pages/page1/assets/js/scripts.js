@@ -5,6 +5,7 @@ const total = document.getElementById("total");
 const busSelect = document.getElementById("bus");
 const destinationText = document.getElementById("destination");
 const cancelReservationBtn = document.getElementById("cancel-reservation");
+const reserveFiveSeatsBtn = document.getElementById("reserve-five-seats");
 
 // Create Notification Element
 const notification = document.createElement("div");
@@ -53,10 +54,14 @@ function updateSelectedCount() {
 // Get data from localstorage and populate UI
 function populateUI() {
   const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats")) || [];
+  const reservedSeats = JSON.parse(localStorage.getItem("reservedSeats")) || [];
 
   seats.forEach((seat, index) => {
     if (selectedSeats.includes(index)) {
       seat.classList.add("selected");
+    }
+    if (reservedSeats.includes(index)) {
+      seat.classList.add("reserved");
     }
   });
 
@@ -86,17 +91,40 @@ container.addEventListener("click", (e) => {
   if (e.target.classList.contains("seat") && !e.target.classList.contains("sold") && !e.target.classList.contains("reserved")) {
     e.target.classList.toggle("selected");
     updateSelectedCount();
-    showNotification(`Reservation successful! Total: BR.$${total.innerText}`);
   }
 });
 
 // Cancel reservation button event
 cancelReservationBtn.addEventListener("click", () => {
-  document.querySelectorAll(".row .seat.selected").forEach(seat => {
+  const selectedSeats = document.querySelectorAll(".row .seat.selected");
+  selectedSeats.forEach(seat => {
     seat.classList.remove("selected");
   });
+
+  // Cancel reservation for reserved seats
+  const reservedSeats = document.querySelectorAll(".row .seat.reserved");
+  reservedSeats.forEach(seat => {
+    seat.classList.remove("reserved");
+  });
+
   updateSelectedCount();
   showNotification("Reservation canceled!");
+});
+
+// Reserve 5 seats function
+reserveFiveSeatsBtn.addEventListener("click", () => {
+  const availableSeats = document.querySelectorAll(".row .seat:not(.sold):not(.reserved)");
+
+  let reservedCount = 0;
+  availableSeats.forEach(seat => {
+    if (reservedCount < 5) {
+      seat.classList.add("reserved");
+      reservedCount++;
+    }
+  });
+
+  updateSelectedCount();
+  showNotification(`${reservedCount} seat(s) reserved!`);
 });
 
 // Initial count and total set
